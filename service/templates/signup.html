@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ 
+ <title>Car2Care</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/rev.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    
+  
+</head>
+<body class="body">
+
+<div class="account-container">
+ 
+<div class="left-text-container">
+    <h2>Mission & Vision</h2>
+    <p>A tech-driven multi-brand car service platform, Car2Care simplifies car servicing through clever and cost-effective solutions. The Car2Care nexus thrives on innovation and strives to bring quality, transparency, and reliability, the three pillars that undergird its business model. Owing to a motley of experts and state of the art equipments, we provide a host of services ranging from the biggest overhauls to the minutest tuning. Our business presence spans across India with workshops in Delhi, Noida, Gurgaon, Jaipur, Chennai, Ahmedabad, Lucknow, Bengaluru, Hyderabad, Jhansi, Mumbai, Chandigarh, Faridabad, and Pune.</p>
+</div>
+<div class="left-bottom-container">
+    <p>© 2014-2022 Car2Care Software Co., Ltd. All rights reserved.</p>
+    <div class="other">
+        <a href="" rel="nofollow">Privacy Policy</a>
+        <a href="" rel="nofollow">User Agreement</a>
+    </div>
+</div>
+
+  <div class="right-container">
+      <div class="sign-list" style="display: block">
+          <h1>Create your account</h1>
+          <div class="input-list">
+              <div class="input-list-con" style="display: block">
+                  <div class="list">
+                      <input
+                              type="text"
+                              class="input-text"
+                              placeholder="Email"
+                              data-errortext="Please enter a valid email address."
+                              data-type="account"
+                              oninput="onInputChange(this)"
+                              onpropertychange="onInputChange(this)"
+                              data-index="0"
+                              data-othertype="email"
+                              id="signup-account"
+                              autocomplete="off"
+                      >
+                  </div>
+                  <div class="list">
+                      <input
+                              type="password"
+                              class="input-text"
+                              placeholder="Password (6-20 characters)"
+                              data-errortext="The password must be between 6-20 characters long."
+                              data-type="password"
+                              oninput="onInputChange(this)"
+                              onpropertychange="onInputChange(this)"
+                              data-index="1"
+                              data-othertype="password"
+                              id="signup-password"
+                              autocomplete="off"
+                      >
+                  </div>
+                  <div class="list">
+                      <input
+                              type="password"
+                              class="input-text"
+                              placeholder="Confirm password"
+                              data-errortext="The password must be between 6-20 characters long."
+                              data-errortext2="Password does not match."
+                              data-type="password"
+                              oninput="onInputChange(this)"
+                              onpropertychange="onInputChange(this)"
+                              data-index="2"
+                              data-othertype="confirm_password"
+                              id="signup-confirm-password"
+                              autocomplete="off"
+                      >
+                  </div>
+                  <div class="submit">
+                    <div class="error-text-container">
+                      <div class="error-text"></div>
+                    </div>
+                    <a href="dashboard" class="button disabled" id="email-register-button">Create account</a>
+
+                  </div>
+              </div>
+          </div>
+          <div class="other-text" style="margin-bottom: -8px;">Already have an account?&nbsp;<a href="signin.html" class="red">Sign in</a></div>
+          <div class="other-text small-other-text" style="margin-bottom: 0;">
+            <div class="agree-privacy" id="agree-privacy" data-errortext="Please read and accept the User Agreement.">
+              <i class="iconfont icon_check_tick"></i>I accept&nbsp;Car2Care</div>
+          <a href="" class="red" target="_blank"> Terms of Service</a> and <a href="" class="red" target="_blank">Privacy Policy</a></div>
+      </div>
+  </div>
+</div>
+
+<script src="{% static 'accounts/js/jquery.js' %}"></script>
+<script src="{% static 'accounts/js/public.js' %}"></script>
+<script src="{% static 'accounts/js/account.js' %}"></script>
+<script>
+
+  var $agreePrivacy = $('#agree-privacy'); 
+  var $emailRegisterButton = $('#email-register-button'); 
+  var $account = $('#signup-account');
+  var $password = $('#signup-password');
+  var $confirmPassword = $('#signup-confirm-password');
+
+  $(function() {
+    setInputFocusInit($emailRegisterButton);
+    $agreePrivacy.click(function() {
+      if ($(this).hasClass('agrees')) {
+        $(this).removeClass('agrees');
+      } else {
+        $(this).addClass('agrees');
+        if (onInputChange($account, 'addError') && onInputChange($password, 'addError') && onInputChange($confirmPassword, 'addError')) {
+          $emailRegisterButton.removeClass('disabled');
+          $('.error-text').text('');
+        }
+      }
+    });
+
+    $emailRegisterButton.click(function() {    
+      var $dom = $(this);
+      if ($(this).hasClass('disabled')) {
+        return;
+      }
+
+      if (!onInputChange($account, 'addError') || !onInputChange($password, 'addError') || !onInputChange($confirmPassword, 'addError')) {
+        return;
+      }
+
+      if (!$agreePrivacy.hasClass('agrees')) {
+        $dom.addClass('disabled');
+        $('.error-text').text($agreePrivacy.data('errortext'));
+        return;
+      }
+
+      
+      $.post('/signup', {
+        email: $account.val().trim(),
+        password: $password.val().trim(),
+        next: next,
+        source: source,
+        plugin_code: plugin_code
+      }, function(res) {
+        hideLoading();
+        $dom.removeClass('disabled');
+        if (res.code === 0) {
+          window.location.href = res.payload.nextURL;
+          return;
+        }
+        $('.error-text').text(res.message);
+      });
+    });
+
+  })
+</script>
+</body>
+</html>

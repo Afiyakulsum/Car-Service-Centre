@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+<title>Login</title>
+<link rel="stylesheet" href="{% static 'accounts/css/rev.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    
+   
+    
+    
+</head>
+<body class="body" >
+<div class="account-container">
+  
+<div class="left-text-container">
+    <h2>Personalize Your Experience</h2>
+    <p>Get access to a comprehensive range of the best services. Customize for the perfect service experience with the help of our expert car mechanics and choose your right fit service from engine oil to replace, interior cleaning, coolant top-up, wheel alignment, and much more.</p>
+</div>
+<div class="left-bottom-container">
+    <p>© 2014-2022 Car2Care Software Co., Ltd. All rights reserved.</p>
+    <div class="other">
+        <a href="" rel="nofollow">Privacy Policy</a>
+        <a href="" rel="nofollow">User Agreement</a>
+    </div>
+</div>
+
+  <div class="right-container">
+      <div class="sign-list" id="sign-in" style="display: block">
+          <h1>Sign in to Car2Care</h1>
+          <div class="input-list">
+              <div class="input-list-con first-init" style="display: block">
+                  <div class="list">
+                      <input
+                          type="text"
+                          class="input-text the-signin-account"
+                          placeholder="Email"
+                          data-errortext="Please enter a valid email address."
+                          data-type="account"
+                          oninput="onInputChange(this)"
+                          onpropertychange="onInputChange(this)"
+                          data-index="0"
+                          autocomplete="on"
+                      >
+                  </div>
+                  <div class="list">
+                      <input
+                          type="password"
+                          class="input-text the-signin-password"
+                          placeholder="Password"
+                          data-errortext="The password must be between 6-20 characters long."
+                          data-type="password"
+                          oninput="onInputChange(this)"
+                          onpropertychange="onInputChange(this)"
+                          data-index="1"
+                          id="signin-password"
+                          autocomplete="on"
+                      >
+                      <a href="" class="right-text clickable" id="forget-password">Forgot password</a>
+                  </div>
+                  <div class="submit">
+                    <div class="error-text-container">
+                      <div class="error-text"></div>
+                    </div>
+                    <a  href="dashboard" class="button disabled" id="normal-login">Sign in</a>
+                  </div>
+              </div>
+          </div>
+          
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<script src="{% static 'accounts/js/jquery.js' %}"></script>
+<script src="{% static 'accounts/js/public.js' %}"></script>
+<script src="{% static 'accounts/js/account.js' %}"></script>
+<script>
+  var source = '';
+  var plugin_code = '';
+  var $errorMessage = $('.error-message');
+  var $normalLogin = $('#normal-login'); 
+
+  $(function () {
+    setInputFocusInit($normalLogin);
+
+    
+    $normalLogin.click(function () {
+      var $this = $(this);
+      if ($(this).hasClass('disabled')) {
+        return;
+      }
+      var inputList = $this.parents('.input-list-con').find('input');
+      var $account;
+      var $password;
+
+      for (var item of inputList) {
+        if ($(item).data('type') === 'account') {
+          $account = $(item);
+        }
+        if ($(item).data('type') === 'password') {
+          $password = $(item);
+        }
+      }
+
+      if (!onInputChange($account, 'addError') || !onInputChange($password, 'addError')) {
+        return;
+      }
+
+      showLoading();
+      $this.addClass('disabled');
+      $.ajax({
+        url: '/signin',
+        type: 'POST',
+        dataType: 'json',
+        headers: { 'x-Car2Care-txmeet': isInWeMeet() ? 'true' : 'false' },
+        data: {
+          account: $account.val().trim(),
+          password: $password.val().trim(),
+          next: next,
+          source: source,
+          plugin_code: plugin_code
+        },
+        success: function (res) {
+          hideLoading();
+          $this.removeClass('disabled');
+          if (res.code === 0) {
+            window.location.href = res.payload.nextURL;
+            return;
+          }
+          $('.error-text').text(res.message);
+        }
+      });
+    });
+  })
+</script>
+ 
+ <script>  
+  function start() {
+    gapi.load('auth2', function() {
+      gapi.auth2.init({
+        client_id: '490986521215-tlbf6t4926ql3hsb9a97p1vrsdam7h17.apps.googleusercontent.com',
+        
+        scope: 'email profile',
+        fetch_basic_profile: false
+      });
+    });
+  }
+
+  $('#googleButton').click(function() {
+    var auth2 = gapi.auth2.getAuthInstance();      
+    if (typeof auth2 !== 'undefined') {
+      auth2.signIn().then(function(authResult) {
+        var profile = auth2.currentUser.get().getBasicProfile();
+        var googleEmail = profile.getEmail();
+        var data = {
+          code: '2021-05-22 new function signin',
+          email: googleEmail,
+          next: next,
+          source: source,
+          plugin_code: plugin_code,
+        };
+        googleLogin(data);   
+      });     
+      
+    } else {
+      showReloadMessage('Please check your network settings and ', 'try again.', window.location.href);
+    }
+  });
+
+  function signInCallback(authResult) {
+    if (authResult['code']) {
+      if (auth2.isSignedIn.get()) {
+        var profile = auth2.currentUser.get().getBasicProfile();
+        var googleEmail = profile.getEmail();
+      }
+      var data = {
+        code: authResult['code'],
+        email: googleEmail,
+        next: next,
+        source: source,
+        plugin_code: plugin_code,
+      };
+      googleLogin(data);
+    } else {
+      showReloadMessage('Please check your network settings and ', 'try again.', window.location.href);
+    }
+  }
+
+  function googleLogin (data) {
+    showLoading();
+    $.post('/google-login', data, function (res) {
+      hideLoading();
+      if (res.code === 0) {
+        window.location.href = res.payload.nextURL;
+        return;
+      }
+      showMessage(res.message);
+    });
+  }
+
+ </script>
+</body>
+</html>

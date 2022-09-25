@@ -1,0 +1,475 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Car2Care</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	
+	<meta name="google-site-verification" content="qOXtbB40s4ZiUl5mml1-1J2EagNACUk5k" />
+	
+
+	
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/captcha.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static 'css/single.css' %}" type="text/css" media="all" />
+	
+	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+	<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+	 rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+	 rel="stylesheet">
+	
+
+</head>
+
+<body>
+	<header>
+		<!-- navigation -->
+		<div class="main-top py-0">
+			<nav class="navbar navbar-expand-lg navbar-light fixed-navi">
+				<div class="container-fluid">
+                    <div style="text-decoration:underline; color:rgb(197, 100, 116)">
+					<h2 style="text-decoration:overline ;color: black;">Car<span style="color: rgb(156, 67, 82);" >2Care</span></h2>
+                </div>
+					
+					<div class="collapse navbar-collapse text-center mr-2" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-lg-auto">
+							<li class="nav-item mx-xl-5 mx-lg-3 my-lg-0 my-3">
+								<a class="nav-link" href="dashboard">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="service">Services
+									<span class="sr-only"></span>
+								</a>
+							</li>
+							<li class="nav-item mx-xl-5 mx-lg-3 my-lg-0 my-3">
+								<a class="nav-link" href="BodyShop">BodyShop</a>
+							</li>
+							
+							<li class="nav-item mt-lg-0 mt-3">
+								<a class="nav-link" href="Contact">About Us</a>
+							</li>
+							
+						</ul>
+					</div>
+					
+				</div>
+			</nav>
+		</div>
+    <div style="background-color:pink; font-family:poppins; " class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Personalize Your Experience</h1>
+      <p class="fs-5 text-muted">Get access to a comprehensive range of the best services. Customize for the perfect service experience with the help of our expert car mechanics and choose your right fit service from engine oil to replace, interior cleaning, coolant top-up, wheel alignment, and much more.</p>
+    </div>  
+	</header>
+	<br>
+
+
+  <div class="inner-sec-w3ls">
+	<div class="container-fluid" style="padding: 0;">
+		<div class="col-lg-12" style="background: white;padding: 0;">
+				<ul class="nav nav-tabs mb-4 pt-3" id="serviceNav">
+					  <li class="nav-item">
+						  <a class="nav-link active" data-toggle="tab" href="#service1">
+							 Periodic Service
+						</a>
+					</li>
+					  <li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service2">
+							  Denting & Painting
+						</a>
+					</li>
+					  <li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service3">
+								Car Wash & Spa
+						</a>
+					</li>
+					  
+					<li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service4">
+							 Car AC Service & Repair
+						</a>
+					</li>
+					<li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service5">
+							  Car Batteries
+						</a>
+					</li>
+					<li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service6">
+							  Wheel Allignment & Balancing
+						</a>
+					</li>
+					
+					<li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service7">
+							 Custom Repairs
+						</a>
+					</li>
+					<li class="nav-item">
+						  <a class="nav-link" data-toggle="tab" href="#service8">
+							  Insurance Claim
+						</a>
+					</li>
+					
+				</ul>
+			</div>
+	</div>
+	
+
+
+
+
+  <main >
+    <div  class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="">
+            <h4 class="my-0 fw-normal">Free</h4>
+          </div>
+          <div  class="card-body">
+            <h1 class="card-title pricing-card-title">0.Rs<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Basic Service-1800/- </li>
+              <li>Wheel Alignment-280/-</li>
+              <li>Wheel Balancing-300/-</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="">
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button> </a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div style="background-color:silver ;" class="card mb-4 rounded-3 shadow-sm">
+          <div class="">
+            <h4 class="my-0 fw-normal">Silver</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">15000.Rs<small class="text-muted fw-light">/6mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Standard Service-3000/-</li>
+              <li>AC Service-2500/-</li>
+              <li>Complete Car wash-600/-</li>
+              <li>Interior Cleaning-1000/-</li>
+            </ul>
+            <a href="">
+            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button></a>
+          </div>
+        </div>
+      </div>
+      <div  class="col">
+        <div style="background-color:goldenrod;" class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="">
+            <h4 >Gold</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">30000.Rs<small class="text-muted fw-light">/6mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Premium service</li>
+              <li>Comprehensive Service-5000/-</li>
+              <li>Ceramic Coating-12500/-</li>
+              <li>Full Body Dent Paint(X1)</li>
+            </ul>
+            <a href="">
+            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div  class="card mb-4 rounded-3 shadow-sm">
+        <div class="main-w3pvt">
+			<h2>Door Step Service</h2>
+          <section class="w3l-content-11-main">
+            <div class="content-design-11 py-1 mt-5">
+                <div class="container">
+                  
+                  <div class="comment-top formBoxShadow">
+                  <form action="#" method="get" class="contact-wthree">
+                    <div class="form-group d-flex">
+                      
+                      <input class="form-control" type="text" placeholder="Enter your model" name="model" required="">
+                    </div>
+                    <div class="form-group d-flex">
+                    
+                      <input class="form-control" type="email" placeholder="Enter your email..." name="email" required="">
+                    </div>
+                    <div class="form-group d-flex">
+                      
+                      <input class="form-control" type="" placeholder="Phone number" name="phno" required="">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" rows="5" id="contactcomment" placeholder="Your message" required></textarea>
+                      <a href="">
+                        <br><br>
+                     <input  type="submit" value="submit" style="width: 100px;height: 50px ;" class="btn btn-outline-danger citySelect selectedCity">  <p>You Get a Call Soon</p>
+                   </a>
+                    </div>
+                    
+                </form>
+              </div>    
+                </div>
+              </div>
+          </section>
+        </div>
+    
+    
+      </div>
+    </div>
+   
+    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+    <div class="bottom-w3pvt pb-lg-5 py-lg-0 py-5">
+      <div class="container py-xl-5 py-lg-3">
+        <h3 class="title-w3 mb-sm-5 mb-4 text-dark font-weight-bold">Car Service Price List</h3>
+        <table class="table table-striped">
+          <tbody>
+            <tr><th>Service</th><th>Price</th></tr>
+            <tr><td>Basic Service</td><td>1800</td></tr>
+            <tr><td>Standard Service</td><td>3000</td></tr>
+            <tr><td>Comprehensive Service</td><td>5000</td></tr>
+            <tr><td>AC Gas CheckUp</td><td>1200</td></tr>
+            <tr><td>AC Service</td><td>2500</td></tr>
+            <tr><td>Wheel Alignment</td><td>280</td></tr>
+            <tr><td>Wheel Balancing</td><td>300</td></tr>
+            <tr><td>Ceramic Coating</td><td>12500</td></tr>
+            <tr><td>Rubbing Polishing</td><td>900</td></tr>
+            <tr><td>Complete Car wash</td><td>500</td></tr>
+            <tr><td>Interior Cleaning</td><td>1000</td></tr>
+            <tr><td>Full Body Dent Paint</td><td>20000</td></tr>
+            
+     </tbody>
+        </table>
+  
+      </div>
+    </div>
+    
+  
+  </main>
+
+
+	<style>
+	.cityCells img{
+		border-radius: 100%;
+		width: 50px;
+		height: 50px;
+		margin: 8px 0px 8px 0px;
+	}
+</style>
+<div class="modal fade" id="city" tabindex="-1" role="dialog" aria-labelledby="cityLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content p-3">
+		
+		<!-- Modal Header -->
+		<div class="modal-header">
+			<h4 class="modal-title">Select City</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+		
+		<!-- Modal body -->
+		<div class="modal-body">
+			<div class="row text-center" id="cityCells"></div>
+		</div>
+			
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+<footer>
+	<div class="w3ls-footer-grids py-4" id="footer" style="background: url('images/vehiclecaerfooter.png');">
+		<div class="container py-xl-2 py-lg-3">
+			<div class="row">
+				<div class="col-lg-12 text-center mb-4">
+					
+					
+					
+				</div>
+				<div class="col-lg-6 w3l-footer text-lg-right text-center mt-3 isHidden">
+					<h5 class="text-left footerHeading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Popular Searches</h5>
+					<div class="row">
+						<ul class="list-unstyled footer-nav-wthree col-lg-6" id="popularSearchDom">
+							<li class="mr-4"><a class="" href="#">Car Brands</a> </li>
+							<li class="mr-4"><a class="" href="#">ShowRoom</a> </li>
+							<li class="mr-4"><a class="" href="#">Price</a> </li>
+							<li class="mr-4"><a class="" href="#">Travel</a> </li>
+
+						</ul>
+						
+					</div>
+				</div>
+
+				<div class="col-lg-3 w3l-footer text-lg-right text-center mt-3">
+					<h5 class="text-left footerHeading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Popular Services</h5>
+					<ul class="list-unstyled footer-nav-wthree">
+							<li class="mr-4"> <a class="" href="#">All Service</a></li>
+							<li class="mr-4"> <a class="" href="#">General Service</a></li>
+							<li class="mr-4"> <a class="" href="#">Custom Repairs</a></li>
+							<li class="mr-4"> <a class="" href="#">Car Cleaning</a></li>
+							<li class="mr-4"> <a class="" href="#">AC/Heater Service</a></li>
+							<li class="mr-4"> <a class="" href="#">Denting And Painting</a></li>
+					</ul>
+				</div>
+				
+				
+				<div class="col-lg-3 w3l-footer text-lg-right text-center mt-3">
+					<h5 class="text-left footerHeading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Company</h5>
+					<ul class="list-unstyled footer-nav-wthree">
+							<li class="mr-4"> <a class="" href="">About</a></li>
+							<li class="mr-4"> <a class="" href="">Faq</a></li>
+							<li class="mr-4"> <a class="" href="">Careers</a></li>
+							<li class="mr-4"> <a class="" href="">Contact Us</a></li>
+							<li class="mr-4"> <a class="" href="">Term & Conditions</a></li>
+							<li class="mr-4"> <a class="" href="">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="pt-lg-4 pt-3 text-center">
+				
+				<p class="copy-right-grids mt-lg-1">© <script>document.write(new Date().getFullYear())</script> All Rights Reserved |
+					Car2Care</a>
+				</p>
+				
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+	<style>
+.nav-link :hover{
+color: #ed3237;
+}
+
+		#primeModal .modal-content,
+		#primeModal .modal-footer
+		{
+			background: transparent;
+			text-align: center;
+			border: none;
+		}
+		#primeModal img {
+			width: 70%;
+		}
+	</style>
+	
+	<style>
+		@media (min-width: 768px) {
+
+		    /* show 3 items */
+		    .carousel-inner .active,
+		    .carousel-inner .active + .carousel-item,
+		    .carousel-inner .active + .carousel-item + .carousel-item {
+		        display: block;
+		    }
+		    
+		    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+		    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+		    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+		        transition: none;
+		    }
+		    
+		    .carousel-inner .carousel-item-next,
+		    .carousel-inner .carousel-item-prev {
+		      position: relative;
+		      transform: translate3d(0, 0, 0);
+		    }
+		    
+		    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+		        position: absolute;
+		        /*top: 0;*/
+		        right: -33.3333%;
+		        z-index: -1;
+		        display: block;
+		        visibility: visible;
+		    }
+		    
+		    /* left or forward direction */
+		    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+		    .carousel-item-next.carousel-item-left + .carousel-item,
+		    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+		    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+		        position: relative;
+		        transform: translate3d(-100%, 0, 0);
+		        visibility: visible;
+		    }
+		    
+		    /* farthest right hidden item must be abso position for animations */
+		    .carousel-inner .carousel-item-prev.carousel-item-right {
+		        position: absolute;
+		        /*top: 0;*/
+		        left: 0;
+		        z-index: -1;
+		        display: block;
+		        visibility: visible;
+		    }
+		    
+		    /* right or prev direction */
+		    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+		    .carousel-item-prev.carousel-item-right + .carousel-item,
+		    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+		    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+		        position: relative;
+		        transform: translate3d(100%, 0, 0);
+		        visibility: visible;
+		        display: block;
+		        visibility: visible;
+		    }
+
+		}
+
+		.carousel-inner .carousel-item-right.active,
+		.carousel-inner .carousel-item-next {
+		  transform: translateX(33.33%);
+		}
+
+		.carousel-inner .carousel-item-left.active, 
+		.carousel-inner .carousel-item-prev {
+		  transform: translateX(-33.33%)
+		}
+		  
+		.carousel-inner .carousel-item-right,
+		.carousel-inner .carousel-item-left{ 
+		  transform: translateX(0);
+		}
+
+		.carousel-control-prev {
+		    left: 0;
+		    width: 30px;
+		    height: 35px;
+		    vertical-align: middle;
+		    color: white !important;
+		    background: #ed3237;
+		    font-size: 12px;
+		    font-weight: 500;
+		}
+
+		.carousel-control-next{
+			right: 0;
+		    width: 30px;
+		    height: 35px;
+		    vertical-align: middle;
+		    color: white !important;
+		    background: #ed3237;
+		    font-size: 12px;
+		    font-weight: 500;
+		}
+
+		i.fa.fa-chevron-right.fa-lg.text-muted , i.fa.fa-chevron-left.fa-lg.text-muted{
+			color: white !important;
+		}
+
+	</style>
+</body>
+
+</html>
